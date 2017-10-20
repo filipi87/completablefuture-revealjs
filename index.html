@@ -30,11 +30,13 @@
 		<div class="reveal">
 			<div class="slides">
 				<section data-background="#dddddd">
-					<h1>Web Components</h1>
+					<p>Programação assíncrona com CompletableFuture</p>
 					<a href="#" class="navigate-down">
 						<img data-src="img/auto-components.jpg">
 					</a>
 					<p>
+						<small>Emerson Venâncio @ Dígitro Tecnologia</small>
+						<br/>
 						<small>Filipi da Silva Fuchter @ Dígitro Tecnologia</small>
 					</p>
 				</section>
@@ -45,302 +47,62 @@
 					</div>
 				</section>
 				<section>
-					<h2>Challenges to face</h2>
-					<div class="content">
-						<p>Monolithic frontend</p>
-						<p>Low levels of productivity</p>
-						<p>Unable to release patches</p>
-					</div>
-					<!--<img height="200px" data-src="img/slow.png">-->
+					<h2>Introdução</h2>
+					<p>....</p>
 				</section>
 				<section>
-					<h2>Introduction</h2>
-					<p>Web components are based on existing web standards. Allow you to create new custom, reusable, encapsulated HTML tags to use in web pages.</p>
-					<p>Can be used with any JavaScript library or framework that works with HTML.</p>
-				</section>
-				<section>
-					<h2>Overview</h2>
-					<p>W3C Standards</p>
+					<h2>Por Que?</h2>
+					<p>......</p>
 					<div class="content">
 						<blockquote style="font-size: 2rem;">
 							<ul>
-								<li>HTML Templates</li>
-								<li>Shadow DOM</li>
-								<li>Custom Elements</li>
-								<li>HTML Imports</li>
+								<li>...</li>
+								<li>...</li>
 							</ul>
 						</blockquote>
 					</div>
 				</section>
 				<section>
-					<h2>HTML Templates</h2>
-					<p>Describes a method for declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents.</p>
-					<img height="100px" data-src="img/completed.png">
+					<h2>Quando?</h2>
+					<p>......</p>
+					<div class="content">
+						<blockquote style="font-size: 2rem;">
+							<ul>
+								<li>...</li>
+								<li>...</li>
+							</ul>
+						</blockquote>
+					</div>
 				</section>
 				<section>
-					<h2>Shadow DOM</h2>
-					<p>Describes a method of establishing and maintaining functional boundaries between DOM subtrees and how these subtrees interact with each other within a document tree.</p>
-					<img height="100px" data-src="img/draft.png">
-				</section>
-				<section>
-					<h2>Custom Elements</h2>
-					<p>This document describes the method for enabling the author to define and use new types of DOM elements in a document.</p>
-					<img height="100px" data-src="img/draft.png">
-				</section>
-				<section>
-					<h2>HTML Imports</h2>
-					<p>This document defines a way to include and reuse HTML documents in other HTML documents.</p>
-					<img height="100px" data-src="img/draft.png">
-				</section>
-				<section>
-					<h2>Example</h2>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<!-- Defines element markup -->
-							<template>
-								<p>Hello <strong></strong></p>
-							</template>
-							<script>
-								// Refers to the hello-world.html
-								var thisDoc =  (document._currentScript || document.currentScript).ownerDocument;
-								// Gets content from <template>
-								var template = thisDoc.querySelector('template').content;
-								// Creates an object based in the HTML Element prototype
-								var MyElementProto = Object.create(HTMLElement.prototype);
-								// Creates the "name" attribute and sets a default value
-								MyElementProto.name = 'World';
-								// Fires when an instance of the element is created
-								MyElementProto.createdCallback = function() {
-									// Creates the shadow root
-									var shadowRoot = this.createShadowRoot();
-									// Adds a template clone into shadow root
-									var clone = document.importNode(template, true);
-									shadowRoot.appendChild(clone);
-									// Caches <strong> DOM query
-									this.strong = shadowRoot.querySelector('strong');
-									// Checks if the "name" attribute has been overwritten
-									if (this.hasAttribute('name')) {
-										var name = this.getAttribute('name');
-										this.setname(name);
-									}
-									else {
-										this.setname(this.name);
-									}
-								};
-								// Sets new value to "name" attribute
-								MyElementProto.setname = function(val) {
-									this.name = val;
-									// Sets "name" value into <strong>
-									this.strong.textContent = this.name;
-								};
-								// Register in the main document
-								window.MyElement = document.registerElement('hello-world', {
-									prototype: MyElementProto
-								});
-							</script>
-						</code>
-					</pre>
+					<h2>Quando não?</h2>
+					<p>......</p>
+					<div class="content">
+						<blockquote style="font-size: 2rem;">
+							<ul>
+								<li>...</li>
+								<li>...</li>
+							</ul>
+						</blockquote>
+					</div>
 				</section>
 				<section>
 					<h2>Example</h2>
 					<pre>
 						<code class="hljs" data-trim contenteditable>
 							<!-- Run it -->
-							<hello-world name="FloripaJS"></hello-world>
-							<hello-world></hello-world>
+							<div>Acrescentar caso de exemplo</div>
 						</code>
 					</pre>
 					<a href="examples/index.html" target="_blank">My first native example!</a>.
 				</section>
 				<section>
-					<h2>Lifecycle callbacks</h2>
-					<div class="content">
-						<blockquote style="font-size: 2rem;">
-							<ul>
-								<li><b>createdCallback()</b> Called after the element is created.</li>
-								<li><b>attachedCallback()</b> Called when the element is attached to the document.</li>
-								<li><b>detachedCallback()</b> Called when the element is detached from the document.</li>
-								<li><b>attributeChangedCallback()</b> Called when one of attributes of the element is changed.</li>
-							</ul>
-						</blockquote>
-					</div>
-				</section>
-				<section>
-					<h2>Browser support</h2>
-					<img data-src="img/browsers_support.png">
-				</section>
-				<section>
-					<h2>Polyfills</h2>
-					<p>webcomponentsjs</p>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<script src="../bower_components/webcomponentsjs/webcomponents.min.js" type="text/javascript"></script>
-						</code>
-					</pre>
-					<a href="https://www.webcomponents.org/polyfills" target="_blank">https://www.webcomponents.org/polyfills</a>.
-				</section>
-				<section>
-					<h2>Polymer</h2>
-					<p>Library for creating web components. It is designed to make it easier and faster to make custom HTML elements.</p>
-				</section>
-				<section>
-					<h2>Example with Polymer</h2>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<!--
-							<link rel="import" href="../bower_components/polymer/polymer.html">
-							<dom-module id="hello-world-polymer">
-								<template>
-									<p>Hello <strong>{{name}}</strong></p>
-								</template>
-								<script>
-									Polymer({
-										is: 'hello-world-polymer',
-
-										properties: {
-											name: String
-										},
-
-										ready: function() {
-											console.log('ready');
-										},
-
-										attached: function() {
-											console.log('attached');
-										}
-									});
-								</script>
-							</dom-module>
-							-->
-						</code>
-					</pre>
-				</section>
-				<section>
-					<h2>Example with Polymer</h2>
-					<pre>
-						<code data-trim contenteditable>
-							<!--
-							<hello-world-polymer name="FloripaJS"></hello-world-polymer>
-							<hello-world-polymer>aaa</hello-world-polymer>
-							-->
-						</code>
-					</pre>
-					<a href="examples/index-polymer.html" target="_blank">My first Polymer example!</a>.
-				</section>
-				<section>
-					<h2>Polymer main features</h2>
-					<p>Custom Constructor</p>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<!--
-							MyElement = Polymer({
-							  is: 'my-element',
-							  factoryImpl: function(foo, bar) {
-								this.foo = foo;
-								this.configureWithBar(bar);
-							  },
-							  configureWithBar: function(bar) {
-								//Do something
-							  }
-							});
-							var el = new MyElement(42, 'octopus');
-							-->
-						</code>
-					</pre>
-				</section>
-				<section>
-					<h2>Polymer main features</h2>
-					<p>Event listener setup</p>
-					<pre>
-						<code class="hljs" data-trim>
-							<!--
-							<dom-module id="x-custom">
-							  <template>
-								<button on-tap="handleTap">Kick Me</button>
-							  </template>
-							  <script>
-								Polymer({
-								  is: 'x-custom',
-								  handleTap: function() {
-									alert('Ow!');
-								  }
-								});
-							  </script>
-							</dom-module>
-							-->
-						</code>
-					</pre>
-				</section>
-				<section>
-					<h2>Polymer main features</h2>
-					<p>Data binding</p>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<!--
-							<dom-module id="user-view">
-							  <template>
-								<div>{{name}}</div>
-							  	<a href$="{{hostProperty}}"/>
-							  </template>
-							  <script>
-								Polymer({
-								  is: 'user-view',
-								  properties: {
-									name: String,
-									hostProperty: String
-								  }
-								});
-							  </script>
-							</dom-module>
-							-->
-						</code>
-					</pre>
-				</section>
-				<section>
-					<h2>Polymer main features</h2>
-					<p>dom-repeat and dom-if</p>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<!--
-							<dom-module id="employee-list">
-							  <template>
-								<div> Employee list: </div>
-								<template is="dom-repeat" items="{{employees}}">
-									<div>First name: <span>{{item.first}}</span></div>
-									<div>Last name: <span>{{item.last}}</span></div>
-								</template>
-							  </template>
-							  <script>
-								Polymer({
-								  is: 'employee-list',
-								  ready: function() {
-									this.employees = [
-										{first: 'Bob', last: 'Smith'},
-										{first: 'Sally', last: 'Johnson'}
-									];
-								  }
-								});
-							  </script>
-							</dom-module>
-							-->
-						</code>
-					</pre>
-				</section>
-				<section>
-					<h2>Polymer 2.0</h2>
-					<p>Released 2017-05-15</p>
-					<p>Elements have been ported to Hybrid mode to be used in both 1.0- and 2.0-based applications.</p>
-					<p>Shadow DOM and Custom Elements v1.</p>
-				</section>
-				<section>
-					<h2>Search Custom elements</h2>
+					<h2>KKKK</h2>
 					<ul class="small-li">
 						<li>Sites</li>
-						<li><a href="https://elements.polymer-project.org/" target="_blank">https://elements.polymer-project.org/</a></li>
-						<li><a href="https://www.webcomponents.org/" target="_blank">https://www.webcomponents.org/</a></li>
 						<hr>
 						<li>Users</li>
-						<li><a href="https://www.youtube.com/new">https://www.youtube.com</a></li>
+						<li><a href="...">Adicionar link Vídeo</a></li>
 					</ul>
 				</section>
 				<section>
@@ -481,9 +243,10 @@
 					</div>
 				</section>
 				<section>
-					<h1 class="no-toc-progress">Thank You</h1>
 					<img data-src="img/doubts.jpg">
 					<p>
+						<small>Emerson Venâncio @ Dígitro Tecnologia</small>
+						<br/>
 						<small>Filipi da Silva Fuchter @ Dígitro Tecnologia</small>
 					</p>
 				</section>
