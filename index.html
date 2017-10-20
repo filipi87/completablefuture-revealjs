@@ -127,15 +127,32 @@
 						<li><a href="https://youtu.be/lyJBtg6Dgwc" target="_blank">JavaOne Oracle - Sergey Kuksenko</a></li>
 					</ul>
 				</section>
+				<section data-background="#dddddd">
+					<h2>Casos de Uso</h2>
+					<!--<img data-src="img/app-archtiecture.svg">-->
+				</section>
+				<section data-background="#dddddd">
+					<h2>Casos de Uso</h2>
+					<img data-src="img/fluxos_pipeline.png">
+				</section>
 				<section>
 					<h2>Casos de Uso</h2>
 					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<!-- Run it -->
-							<div>Acrescentar caso de exemplo</div>
+						<code class="hljs" data-trim>
+							var templateStep = new QueryBCStep(stepConfig);
+							templateStep.nextStep(new LinkBCStep(stepConfig))
+										.nextStep(new TagResultStep(stepConfig, UIsToTag.getTagRequestDTO(nomeUI)));
+
+							var stepInicial = new LoadUIDTOStep(stepConfig);
+							stepInicial.nextStep(new ForkOperacoesStep(stepConfig, request.getOperacoes(), templateStep))
+									.nextStep(new JoinStep(stepConfig))
+									.nextStep(new ClassifyResultStep(stepConfig))
+									.nextStep(new PersistTemporaryStep(stepConfig))
+									.nextStep(callback);
+
+							stepInicial.execute(stepContext, request.getUIID());
 						</code>
 					</pre>
-					<a href="examples/index.html" target="_blank">My first native example!</a>.
 				</section>
 				<section data-background="#245628">
 					<h2>Benefícios</h2>
