@@ -51,7 +51,7 @@
 				</section>
 				<section>
 					<h2>Por Que?</h2>
-					<p>......</p>
+					<p>Programação assíncrona deve ser usada para otimizar o uso de recursos do hardware</p>
 					<div class="content">
 						<blockquote style="font-size: 2rem;">
 							<ul>
@@ -61,29 +61,97 @@
 						</blockquote>
 					</div>
 				</section>
+				<section data-background="#1c4587">
+					<div class="sl-block" data-block-type="image">
+						<img style="border: 0px; background-color: transparent" height="600px" data-src="img/officeBoy.jpg"/>
+					</div>
+				</section>
+				<section data-background="#1c4587">
+					<div class="sl-block" data-block-type="image">
+						<img style="border: 0px; background-color: transparent" height="600px" data-src="img/fila.jpg"/>
+					</div>
+				</section>
+				<section data-background="#1c4587">
+					<div class="sl-block" data-block-type="image">
+						<img style="border: 0px; background-color: transparent" height="600px" data-src="img/diagrama.jpg"/>
+					</div>
+				</section>
+				<section>
+					<p>Sistema OfficeBoy</p>
+					<pre>
+						<code class="hljs" data-trim>
+						public class OfficeBoy {
+	
+						  @PersistenceUnit
+						  EntityManager manager;
+							
+						  public void pagaBoletos(List<Long> ids) {
+						    for (Long idBoleto : ids) {
+						      Boleto boleto = manager.getReference(Boleto.class, idBoleto);
+						      Float valor = boleto.getValor();
+						      boolean pago = BancoWSApi.pagaBoleto(boleto, valor);
+						      boleto.setPago(pago);
+						      manager.merge(boleto);
+						    }
+						  }
+						}
+						</code>
+					</pre>
+				</section>
 				<section>
 					<h2>Quando?</h2>
-					<p>......</p>
+					<p></p>
 					<div class="content">
 						<blockquote style="font-size: 2rem;">
 							<ul>
-								<li>...</li>
-								<li>...</li>
+								<li>Servlets</li>
+								<li>Clientes HTTP</li>
+								<li>I/O</li>
+								<li>Grande volume de dados</li>
 							</ul>
 						</blockquote>
 					</div>
 				</section>
 				<section>
 					<h2>Quando não?</h2>
-					<p>......</p>
 					<div class="content">
 						<blockquote style="font-size: 2rem;">
 							<ul>
-								<li>...</li>
-								<li>...</li>
+								<li>Quando houver necessidade de lock</li>
+								<li>Conexão JDBC</li>
 							</ul>
 						</blockquote>
 					</div>
+				</section>
+				<section>
+					<h2>Evitando lock</h2>
+					<p>Adicionando e consulmindo sem lock</p>
+						<pre>
+						<code class="hljs" data-trim>
+						List<String> tmp = new ArrayList<>();
+	
+						private List<String> getWorkList() {
+						    List<String> work = tmp;
+						    tmp = new ArrayList<>();
+						    return work;
+						}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Evitando lock</h2>
+					<p>Use objetos imutáveis para salvar estado</p>
+					<pre>
+						<code class="hljs" data-trim>
+						List<String> work = new ArrayList<>();
+	
+						public synchronized void addToWorkList(String o) {
+							List<String> tmp = new ArrayList<>(work);
+							tmp.add(o);
+							work = Collections.unmodifiableList(tmp);
+						}
+						</code>
+					</pre>
 				</section>
 				<section data-background="#dddddd">
 					<h2>Completable Future</h2>
