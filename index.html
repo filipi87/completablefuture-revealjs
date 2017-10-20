@@ -132,11 +132,11 @@
 					<!--<img data-src="img/app-archtiecture.svg">-->
 				</section>
 				<section data-background="#dddddd">
-					<h2>Casos de Uso</h2>
+					<p>Workflow para enriquecimento de dados</p>
 					<img data-src="img/fluxos_pipeline.png">
 				</section>
 				<section>
-					<h2>Casos de Uso</h2>
+					<p>Workflow para enriquecimento de dados</p>
 					<pre>
 						<code class="hljs" data-trim>
 							var templateStep = new QueryBCStep(stepConfig);
@@ -151,6 +151,62 @@
 									.nextStep(callback);
 
 							stepInicial.execute(stepContext, request.getUIID());
+						</code>
+					</pre>
+				</section>
+				<section>
+					<p>Workflow para enriquecimento de dados</p>
+					<pre>
+						<code class="hljs" data-trim>
+							<!--
+							List<CompletableFuture<List<UIDTO>>> promises = this.executaOperacoes(stepContext, uidto);
+							proceed(stepContext, promises);
+							-->
+						</code>
+					</pre>
+				</section>
+				<section>
+					<p>Workflow para enriquecimento de dados</p>
+					<pre>
+						<code class="hljs" data-trim>
+							<!--
+							protected CompletableFuture<List<UIDTO>> criarPromiseComTodosValores(List<CompletableFuture<List<UIDTO>>> promises) {
+								try {
+									CompletableFuture allOf = CompletableFuture.allOf(promises.toArray(new CompletableFuture[promises.size()]));
+									CompletableFuture<List<UIDTO>> allPromises = allOf;
+									return allPromises.thenApply((uis) -> {
+										List<UIDTO> valores = new ArrayList<UIDTO>();
+										for (CompletableFuture<List<UIDTO>> promise : promises) {
+											try {
+												List<UIDTO> lista = promise.get();
+												if (lista != null) {
+													valores.addAll(lista);
+												}
+											} catch (Exception e) {
+												tratarErro(e);
+											}
+										}
+										return valores;
+									});
+								} catch (Exception e) {
+									tratarErro(e);
+									return CompletableFuture.completedFuture(Collections.emptyList());
+								}
+							}
+							-->
+						</code>
+					</pre>
+				</section>
+				<section>
+					<p>Workflow para enriquecimento de dados</p>
+					<pre>
+						<code class="hljs" data-trim>
+							<!--
+							CompletableFuture<List<UIDTO>> uisFuture = this.criarPromiseComTodosValores(promises);
+							uisFuture.whenComplete((uis, erro) -> {
+								proceed(stepContext, uis);
+							});
+							-->
 						</code>
 					</pre>
 				</section>
