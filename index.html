@@ -112,15 +112,14 @@
 					<h2>Métodos</h2>
 					<ul class="small-li">
 						<li>38 métodos total</li>
-						<li>Aspectos que diferenciam cada método:
+						<li>Características dos métodos:
 							<ul>
-								<li>Trigger para o stage ser executado
+								<li>somethingAsync(..., Executor)</li>
+								<li>somethingAsync(...)</li>
 									<ul>
-										<li>then</li>
-										<li>Both</li>
-										<li>Either</li>
+										<li>Utiliza ForkJoinPool</li>
 									</ul>
-								</li>
+								<li>something(...)</li>
 							</ul>
 						</li>
 					</ul>
@@ -128,15 +127,11 @@
 				<section>
 					<h2>Métodos</h2>
 					<ul class="small-li">
-						<li>Aspectos que diferenciam cada método:
+						<li>Argumentos e retornos:
 							<ul>
-								<li>Argumentos e retornos
-									<ul>
-										<li>Apply</li>
-										<li>Accept</li>
-										<li>Run</li>
-									</ul>
-								</li>
+								<li>Apply</li>
+								<li>Accept</li>
+								<li>Run</li>
 							</ul>
 						</li>
 					</ul>
@@ -144,29 +139,30 @@
 				<section>
 					<h2>Métodos</h2>
 					<ul class="small-li">
-						<li>Aspectos que diferenciam cada método:
+						<li>Forma de execução do método
 							<ul>
-								<li>Forma de execução do método
-									<ul>
-										<li>Sync</li>
-										<li>Async</li>
-										<li>Async com custom Executor</li>
-									</ul>
+								<li>single input
+									<ul><li>thenApply, thenAccept, thenRun</li></ul>
+								</li>
+								<li>binary or
+									<ul><li>applyToEither, acceptEither, runAfterEither</li></ul>
+								</li>
+								<li>binary and
+									<ul><li>thenCombine, thenAcceptBoth, runAfterBoth</li></ul>
 								</li>
 							</ul>
 						</li>
 					</ul>
 				</section>
 				<section>
-					<h2>Métodos</h2>
+					<h2>Métodos remanescentes:</h2>
 					<ul class="small-li">
 						<li>Principais:
 							<ul>
-								<li>thenApply</li>
-								<li>thenAccept</li>
-								<li>thenRun</li>
+								<li>thenCompose</li>
 								<li>whenComplete</li>
 								<li>exceptionally</li>
+								<li>handle</li>
 							</ul>
 						</li>
 					</ul>
