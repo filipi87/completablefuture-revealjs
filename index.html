@@ -47,7 +47,7 @@
 					</div>
 				</section>
 				<section>
-					<h2>Introdução</h2>
+					<h2>Programação assíncrona</h2>
 					<p>....</p>
 				</section>
 				<section>
@@ -86,8 +86,49 @@
 						</blockquote>
 					</div>
 				</section>
+				<section data-background="#dddddd">
+					<h2>Completable Future</h2>
+					<!--<img data-src="img/app-archtiecture.svg">-->
+				</section>
 				<section>
-					<h2>Example</h2>
+					<h2>Interfaces implementadas</h2>
+					<ul class="small-li">
+						<li>Future</li>
+						<hr>
+						<li>CompletionStage</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Métodos</h2>
+					<ul class="small-li">
+						<li>...</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Comportamento das Threads</h2>
+					<ul class="small-li">
+						<li>Métodos Async e Normal</li>
+						<li>ForkJoinPool e Executors</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Tratamento de Exceção</h2>
+					<ul class="small-li">
+						<li>....</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Dicas de performance</h2>
+					<ul class="small-li">
+						<li>....</li>
+						<hr>
+						<li>Asynchronous API with CompletableFuture</li>
+						<li><a href="https://youtu.be/lyJBtg6Dgwc" target="_blank">JavaOne Oracle - Sergey Kuksenko</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Casos de Uso</h2>
 					<pre>
 						<code class="hljs" data-trim contenteditable>
 							<!-- Run it -->
@@ -96,149 +137,20 @@
 					</pre>
 					<a href="examples/index.html" target="_blank">My first native example!</a>.
 				</section>
-				<section>
-					<h2>KKKK</h2>
-					<ul class="small-li">
-						<li>Sites</li>
-						<hr>
-						<li>Users</li>
-						<li><a href="...">Adicionar link Vídeo</a></li>
-					</ul>
-				</section>
-				<section>
-					<h2>DGT Web Components</h2>
-					<p>Web components Library built by Digitro Tecnologia</p>
-					<a href="http://webcomponents.digitro.com.br" target="_blank">http://webcomponents.digitro.com.br</a>.
-					<p>
-						<small>Available only at Dígitro's intranet.</small>
-					</p>
-				</section>
-				<section>
-					<h2>DGT Web Components</h2>
-					<p>Showcase project</p>
-					<p>Web components project</p>
-					<img data-src="img/wc-project.png">
-				</section>
-				<section>
-					<h2>Automated testing</h2>
-					<p>Web Component Tester</p>
-					<div class="content">
-						<blockquote style="font-size: 2rem;">
-							<p>./node_modules/web-component-tester/bin/wct</p>
-						</blockquote>
-					</div>
-				</section>
-				<section>
-					<h2>Automated testing</h2>
-					<p>XVFB</p>
-					<div class="content">
-						<blockquote style="font-size: 2rem;">
-							<p>xvfb-run ./node_modules/web-component-tester/bin/wct</p>
-						</blockquote>
-					</div>
-				</section>
-				<section>
-					<h2>Automated testing</h2>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							module.exports = {
-								suites: ["test/index.html"],
-								plugins: {
-									local: {
-										browsers: ["chrome","firefox"]
-									},
-									"test-reporter": {
-										reporter: "json",
-										output: "test_result.json"
-									}
-								},
-								//Executar remotamente
-								/*webserver: {
-								  port: 2000,
-								  hostname: '192.168.170.104',
-								},
-								activeBrowsers: [
-									{
-									  url: "http://192.168.172.214:4444/wd/hub", // Whatever hub you spun up in step 3.5.
-									  browserName: "internet explorer",
-									  platform: "windows",
-									  takesScreenshot: true,
-									  cssSelectorsEnabled: true,
-									  javascriptEnabled: true,
-									}
-									,{
-									  url: "http://192.168.172.214:4444/wd/hub", // Whatever hub you spun up in step 3.5.
-									  browserName: "chrome",
-									  platform: "windows",
-									  takesScreenshot: true,
-									  cssSelectorsEnabled: true,
-									  javascriptEnabled: true,
-									}
-									,{
-									  url: "http://192.168.172.214:4444/wd/hub", // Whatever hub you spun up in step 3.5.
-									  browserName: "firefox",
-									  platform: "windows",
-									  takesScreenshot: true,
-									  cssSelectorsEnabled: true,
-									  javascriptEnabled: true,
-									}
-								]*/
-							};
-						</code>
-					</pre>
-				</section>
-				<section data-background="#dddddd">
-					<h2>Architecture Overview</h2>
-					<img data-src="img/app-archtiecture.svg">
-				</section>
-				<section>
-					<h2>Module Sample</h2>
-					<img data-src="img/stt.png">
-				</section>
-				<section>
-					<h2>Sample Code</h2>
-					<pre>
-						<code class="hljs" data-trim contenteditable>
-							<dgt-module label="{{localize('moduleTitle')}}" class="width-full height-full" header-class="hidden">
-								<dgt-modulecontent>
-									<dgt-portallayout class="width-full height-full">
-										<dgt-layoutcolumn width="50%">
-											<dgt-widget label="{{localize('submoduleGridTitle')}}" content-class="row mar-neg-sides">
-												<dgt-widgetcontent>
-													<stt-grid></stt-grid>
-												</dgt-widgetcontent>
-											</dgt-widget>
-										</dgt-layoutcolumn>
-										<dgt-layoutcolumn width="50%">
-											<dgt-widget label="{{localize('submoduleEditTitle')}}" content-class="row mar-neg-sides">
-												<dgt-widgetcontent>
-													<stt-form-new></stt-form-new>
-												</dgt-widgetcontent>
-											</dgt-widget>
-										</dgt-layoutcolumn>
-									</dgt-portallayout>
-								</dgt-modulecontent>
-							</dgt-module>
-						</code>
-					</pre>
-				</section>
 				<section data-background="#245628">
-					<h2>Benefits</h2>
+					<h2>Benefícios</h2>
 					<div class="content">
 						<ul class="small-li">
-							<li>Reusable</li>
-							<li>Interoperability between frameworks</li>
-							<lib>The Code becomes easy to understand</lib>
+							<li>....</li>
 						</ul>
 					</div>
 					<img data-src="img/agnostic.png">
 				</section>
 				<section data-background="#B63C3C">
-					<h2>Risks</h2>
+					<h2>Riscos</h2>
 					<div class="content">
 						<ul class="small-li">
-							<li>Specification still in progress</li>
-							<li>Polyfill to work with some browsers</li>
+							<li>...</li>
 						</ul>
 					</div>
 				</section>
