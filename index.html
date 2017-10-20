@@ -114,9 +114,9 @@
 						<li>38 métodos total</li>
 						<li>Aspectos que diferenciam cada método:
 							<ul>
-								<li>O que dispara o método
+								<li>Trigger para o stage ser executado
 									<ul>
-										<li>When</li>
+										<li>then</li>
 										<li>Both</li>
 										<li>Either</li>
 									</ul>
@@ -130,9 +130,9 @@
 					<ul class="small-li">
 						<li>Aspectos que diferenciam cada método:
 							<ul>
-								<li>Se aceita ou não argumento e retorna resultado
+								<li>Argumentos e retornos
 									<ul>
-										<li>Apply: o resultado será utilizado pelo próximo stage</li>
+										<li>Apply</li>
 										<li>Accept</li>
 										<li>Run</li>
 									</ul>
@@ -146,13 +146,38 @@
 					<ul class="small-li">
 						<li>Aspectos que diferenciam cada método:
 							<ul>
-								<li>Executados de maneira síncrona ou assíncrona
+								<li>Forma de execução do método
 									<ul>
-										<li>Nome sem terminação Async</li>
+										<li>Sync</li>
 										<li>Async</li>
-										<li>Async -> com parâmetro Executor</li>
+										<li>Async com custom Executor</li>
 									</ul>
 								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Métodos</h2>
+					<ul class="small-li">
+						<li>Principais:
+							<ul>
+								<li>thenApply</li>
+								<li>thenAccept</li>
+								<li>thenRun</li>
+								<li>whenComplete</li>
+								<li>exceptionally</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Métodos</h2>
+					<ul class="small-li">
+						<li>Diferenças:
+							<ul>
+								<li>thenCompose: retorna outro stage que retornará o resultado</li>
+								<li>thenApply: retorna resultado em sí</li>
 							</ul>
 						</li>
 					</ul>
