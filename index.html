@@ -87,12 +87,19 @@
 				</section>
 				<section data-background="#dddddd">
 					<h2>Completable Future</h2>
-					<!--<img data-src="img/app-archtiecture.svg">-->
+					<p>Representa um objeto Futuro que pode ser explicitamente completado,
+						e que pode ser utilizado para agregar funções dependentes que serão disparadas quando isto ocorrer.
+					</p>
 				</section>
 				<section>
 					<h2>Interfaces implementadas</h2>
 					<ul class="small-li">
-						<li>Future</li>
+						<li>Future
+							<ul>
+								<li>Não notifica quando o resultado está disponível.</li>
+								<li>Métodos: get() ou isDone()</li>
+							</ul>
+						</li>
 						<hr>
 						<li>CompletionStage</li>
 					</ul>
