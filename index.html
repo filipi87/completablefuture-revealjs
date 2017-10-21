@@ -55,8 +55,8 @@
 					<div class="content">
 						<blockquote style="font-size: 2rem;">
 							<ul>
-								<li>...</li>
-								<li>...</li>
+								<li>Adicionar mais threads não traz performance em todos os casos</li>
+								<li>Quando o número de threads excede o número de processadores o efeito é inverso</li>
 							</ul>
 						</blockquote>
 					</div>
@@ -76,11 +76,11 @@
 						<img style="border: 0px; background-color: transparent" height="600px" data-src="img/diagrama.jpg"/>
 					</div>
 				</section>
+				
 				<section>
 					<p>Sistema OfficeBoy</p>
 					<pre>
 						<code class="hljs" data-trim>
-					     <!--	
 					      public class OfficeBoy {
 	
 						  @PersistenceUnit
@@ -95,10 +95,20 @@
 						      manager.merge(boleto);
 						    }
 						  }
-						}-->
+						}
 						</code>
 					</pre>
+				</section> 
+				<section data-background="#1c4587">
+					<div class="sl-block" data-block-type="image">
+						<img style="border: 0px; background-color: transparent" height="600px" data-src="img/diagrama boleto2.jpg"/>
+					</div>
 				</section>
+				<section data-background="#1c4587">
+					<div class="sl-block" data-block-type="image">
+						<img style="border: 0px; background-color: transparent" height="600px" data-src="img/memory-organization-11-638.jpg"/>
+					</div>
+				</section>				
 				<section>
 					<h2>Quando?</h2>
 					<p></p>
@@ -119,7 +129,7 @@
 						<blockquote style="font-size: 2rem;">
 							<ul>
 								<li>Quando houver necessidade de lock</li>
-								<li>Conexão JDBC</li>
+								<li>Dentro de transações</li>
 							</ul>
 						</blockquote>
 					</div>
@@ -146,7 +156,7 @@
 					<pre>
 						<code class="hljs" data-trim>
 						<!-- 						
-						List<String> work = new ArrayList<>();
+						List<String> work = Collections.unmodifiableList(new ArrayList<>());
 	
 						public synchronized void addToWorkList(String o) {
 							List<String> tmp = new ArrayList<>(work);
@@ -396,7 +406,9 @@
 					<h2>Benefícios</h2>
 					<div class="content">
 						<ul class="small-li">
-							<li>....</li>
+							<li>Componentes com escopo bem definido e reutilizáveis (arquitetura)</li>
+							<li>Legibilidade do fluxo de negócio (manutenção)</li>
+							<li>Melhor aproveitamento dos recursos de hardware (performance)</li>
 						</ul>
 					</div>
 					<img data-src="img/agnostic.png">
@@ -405,7 +417,11 @@
 					<h2>Riscos</h2>
 					<div class="content">
 						<ul class="small-li">
-							<li>...</li>
+							<li>Falta de esperiência do desenvolvedor</li>
+							<li>Hábitos de programação síncrona</li>
+							<li>Callback-hell</li>
+							<li>Estados inesperados por modificação concorrente</li>
+							<li>Deadlocks</li>
 						</ul>
 					</div>
 				</section>
