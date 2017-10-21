@@ -86,7 +86,7 @@
 						  @PersistenceUnit
 						  EntityManager manager;
 							
-						  public void pagaBoletos(List<Long> ids) {
+						  public void pagaBoletos(List ids) {
 						    for (Long idBoleto : ids) {
 						      Boleto boleto = manager.getReference(Boleto.class, idBoleto);
 						      Float valor = boleto.getValor();
@@ -236,16 +236,12 @@
 					</ul>
 				</section>
 				<section>
-					<h2>Métodos remanescentes:</h2>
+					<h2>Métodos:</h2>
 					<ul class="small-li">
-						<li>Principais:
-							<ul>
-								<li>thenCompose</li>
-								<li>whenComplete</li>
-								<li>exceptionally</li>
-								<li>handle</li>
-							</ul>
-						</li>
+						<li>thenCompose</li>
+						<li>whenComplete</li>
+						<li>exceptionally</li>
+						<li>handle</li>
 					</ul>
 				</section>
 				<section>
